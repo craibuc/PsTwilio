@@ -2,15 +2,26 @@
 PowerShell module to interact with Twilio's REST API
 
 ## Usage
-### Send-SmsMessage
+### Get-TwilioSmsMessage
 
 ```powershell
 $sid = "AC________________________________"
 $token = "abcdefghijklmnopqrstuvwxyz"
-$secureString = $token | ConvertTo-SecureString -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($sid, $secureString)
+$secureString = $token | ConvertTo-SecureString -AsPlainText
+$Credential = [PSCredential]::new($sid, $secureString)
 
-Send-SmsMessage -From "+16125550000" -To '+16125550001' -Message 'Testing 123' -Credential $credential
+Get-SmsMessage -Credential $Credential
+```
+
+### Send-TwilioSmsMessage
+
+```powershell
+$sid = "AC________________________________"
+$token = "abcdefghijklmnopqrstuvwxyz"
+$secureString = $token | ConvertTo-SecureString -AsPlainText
+$Credential = [PSCredential]::new($sid, $secureString)
+
+Send-SmsMessage -From "+16125550000" -To '+16125550001' -Message 'Testing 123' -Credential $Credential
 ```
 
 ## Contributors
