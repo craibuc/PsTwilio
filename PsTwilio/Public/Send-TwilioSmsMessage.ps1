@@ -30,7 +30,7 @@ PS> Send-SmsMessage -From "+16125550000" -To '+16125550001' -Message 'Testing 12
 https://www.twilio.com/docs/guides/how-to-make-http-basic-request-twilio-powershell
 
 #>
-function Send-SmsMessage
+function Send-TwilioSmsMessage
 {
 
     [CmdletBinding()]
