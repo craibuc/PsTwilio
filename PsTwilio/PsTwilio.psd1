@@ -12,7 +12,7 @@
     RootModule = 'PsTwilio.psm1'
 
     # Version number of this module.
-    ModuleVersion = '0.0.2'
+    ModuleVersion = '0.1.0'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -69,7 +69,11 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = @('Send-SmsMessage')
+    FunctionsToExport = @(
+        'ConvertTo-E164'
+        'Get-TwilioSmsMessage'
+        'Send-TwilioSmsMessage'
+        )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
@@ -93,6 +97,9 @@
     PrivateData = @{
 
         PSData = @{
+
+            BaseUri = "https://api.twilio.com"
+            Resource = "/2010-04-01/Accounts/__ACCOUNT_SID__"
 
             # Tags applied to this module. These help with module discovery in online galleries.
             Tags = @('twilio','sms','pwsh','powershell')
